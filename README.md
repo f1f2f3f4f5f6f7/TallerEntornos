@@ -1,18 +1,81 @@
-# PROYECTO-LUNCH-UIS TESTCOMMIT
-En el presente repositorio se colocaran los archivos relacionados con el proyecto para el curso de ingeniería de software 2 en el semestre 2025-1.
+# TALLER FULLSTACK - LUNCH UIS
+Este proyecto fue desarrollado originalmente para la misma materia (Entornos de Programación) (2025-2) y adaptado para cumplir con los requisitos del Taller FullStack.
 
-# OBJETIVO GENERAL DEL PROYECTO
-Desarrollar una solución software en forma de página web y/o app móvil que automatice el proceso de compra del servicio de "combo saludable" de la Universidad Industrial de Santander, con el fin de mejorar la eficiencia y accesibilidad, reduciendo el tiempo de espera y los inconvenientes asociados al sistema presencial actual.
+# OBJETIVO DEL TALLER
+Construir una solución FullStack con las siguientes especificaciones técnicas:
+
+* Base de datos NoSQL (MongoDB): Gestión de información hospedada en la nube.
+* Backend con Spring Boot: API RESTful que gestiona el CRUD de documentos y autenticación de usuarios.
+* Frontend con React: Interfaz de usuario que consume el backend para:
+
+    * Login de usuario
+    * CRUD de entidades (Usuarios, Compras, Combos, etc.)
+
+# ARQUITECTURA TECNOLÓGICA
+## Backend
+
+* Framework: Spring Boot 3.4.0
+* Base de datos: MongoDB Atlas (NoSQL)
+* Java: 25
+* Dependencias principales:
+
+    * Spring Data MongoDB
+    * Spring Boot Web
+    * Lombok
+    * ZXing (generación de códigos QR)
+    * Spring Boot Mail
 
 
-## OBJETIVOS ESPECÍFICOS DEL PROYECTO
-- **Crear** un sistema de compra en línea que permita a los estudiantes adquirir el combo saludable de manera remota.
-- **Desarrollar** un sistema de validación de identidad que asegure la compra de un solo combo al día por cada estudiante.
-- **Establecer** un sistema de validación de combos al momento de la compra que garantice la adquisición de los combos únicamente si aún hay disponibles.
-- **Implementar** un sistema de restricción de franja horaria que asegure la compra del combo solo en los horarios establecidos.
-- **Generar** un sistema de reportes y estadísticas sobre datos de interés en este proceso.
-- **Incorporar** una funcionalidad de tokens u otro tipo de tecnología para el reclamo del pedido.
-- **Diseñar** una interfaz de usuario intuitiva y responsive que ofrezca una experiencia de usuario satisfactoria.
-- **Crear** una interfaz para los administradores que les permita ver los reportes y estadísticas de las ventas.
-- **Añadir** un módulo de notificaciones y recordatorios que envíe alertas a los estudiantes sobre sus combos.
-- **Aprender** sobre el uso de la metodología SCRUM en desarrollo de proyectos
+
+## Frontend
+
+* Framework: React 18
+* Gestión de estado: React Hooks
+* HTTP Client: Axios
+* Enrutamiento: React Router
+* Estilos: CSS + Bootstrap
+
+## Infraestructura
+
+* Contenedores: Docker + Docker Compose
+* Proxy reverso: NGINX
+
+# FUNCIONALIDADES IMPLEMENTADAS
+## Módulo de Autenticación
+
+* Login de usuarios (Estudiantes y Administradores)
+* Gestión de sesiones
+* Roles diferenciados
+
+## CRUD de Usuarios
+
+* Crear nuevo usuario
+* Consultar usuarios
+* Actualizar información
+* Eliminar usuarios
+
+## CRUD de Combos (Menús)
+
+* Crear combos saludables
+* Listar combos disponibles
+* Actualizar información de combos
+* Eliminar combos
+
+## Módulo de Compras
+
+* Registrar compras de combos
+* Generación automática de códigos QR
+* Validación de cupos disponibles
+* Restricción de compra única diaria
+
+## Módulo Administrativo
+
+* Gestión de cupos diarios y mensuales
+* Asignación de menús por servicio (almuerzo/cena)
+* Creación de nuevos menús
+* Reportes de ventas
+
+## Sistema de Notificaciones
+
+* Envío de notificaciones por correo electrónico
+* Confirmaciones de compra
