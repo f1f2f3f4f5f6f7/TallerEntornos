@@ -91,11 +91,11 @@ public class BuyService {
         return buyRepository.findAll();
     }
 
-    public Optional<Buy> getBuyById(Long id) {
+    public Optional<Buy> getBuyById(String id) {
         return buyRepository.findById(id);
     }
 
-    public Optional<Buy> updateBuy(Long id, Buy buyDetails) {
+    public Optional<Buy> updateBuy(String id, Buy buyDetails) {
         return buyRepository.findById(id).map(buy -> {
             buy.setDate(buyDetails.getDate());
             buy.setHour(buyDetails.getHour());
@@ -121,7 +121,7 @@ public class BuyService {
         });
     }
 
-    public boolean deleteBuy(Long id) {
+    public boolean deleteBuy(String id) {
         if (buyRepository.existsById(id)) {
             buyRepository.deleteById(id);
             return true;

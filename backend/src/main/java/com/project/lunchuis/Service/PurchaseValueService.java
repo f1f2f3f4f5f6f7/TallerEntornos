@@ -17,7 +17,7 @@ public class PurchaseValueService {
         return purchaseValueRepository.findAll();
     }
 
-    public PurchaseValue getPurchaseValueById(Long id) {
+    public PurchaseValue getPurchaseValueById(String id) {
         return purchaseValueRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class PurchaseValueService {
         return purchaseValueRepository.save(purchaseValue);
     }
 
-    public PurchaseValue updatePurchaseValue(Long id, PurchaseValue purchaseValue) {
+    public PurchaseValue updatePurchaseValue(String id, PurchaseValue purchaseValue) {
         Optional<PurchaseValue> existingPurchaseValue = purchaseValueRepository.findById(id);
         
         if (existingPurchaseValue.isPresent()) {
@@ -41,7 +41,7 @@ public class PurchaseValueService {
         return null; // O puedes lanzar una excepción si el registro no existe
     }
 
-    public void deletePurchaseValue(Long id) {
+    public void deletePurchaseValue(String id) {
         purchaseValueRepository.deleteById(id);
     }
 }

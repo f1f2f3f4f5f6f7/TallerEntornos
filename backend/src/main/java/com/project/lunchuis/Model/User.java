@@ -1,6 +1,5 @@
 package com.project.lunchuis.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,25 +7,26 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Document(collection = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    private String id;
+
     private String name;
     private String password;
     private String email;
     private String code;
     private String phoneNumber;
-    @Enumerated(EnumType.STRING)
     private Rol rol;
     private Boolean session;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @DBRef
     @JsonIgnore
     private List<Buy> purchases = new ArrayList<>();
 }

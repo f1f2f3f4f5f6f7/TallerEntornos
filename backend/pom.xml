@@ -6,18 +6,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>com.project</groupId>
     <artifactId>lunchuis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>lunchuis</name>
-    <description>Demo aplicativo Lunch UIS</description>
+    <description>Aplicativo Lunch UIS - Taller Fullstack</description>
 
     <properties>
-        <java.version>17</java.version>
+    <java.version>19</java.version>
         <spring-boot.version>3.4.0</spring-boot.version>
-        <junit.version>5.8.2</junit.version>
+        <junit.version>5.10.2</junit.version>
         <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
     </properties>
 
@@ -31,7 +31,7 @@
         <!-- Spring Boot Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
         <dependency>
@@ -44,13 +44,6 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate.validator.version}</version>
-        </dependency>
-
-        <!-- PostgreSQL Driver -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- Lombok for cleaner code -->
@@ -78,19 +71,7 @@
             <version>3.5.2</version>
         </dependency>
 
-        <!-- JUnit 5 Dependency -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
+        <!-- JUnit dependencies are provided by spring-boot-starter-test to avoid version conflicts -->
 
         <!-- Mockito Dependency -->
         <dependency>
@@ -114,11 +95,10 @@
                     <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
-            <!-- Spring Boot Maven Plugin -->
+            <!-- Spring Boot Maven Plugin (version managed by parent) -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.0.0</version>
             </plugin>
         </plugins>
     </build>

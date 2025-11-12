@@ -2,9 +2,10 @@ package com.project.lunchuis.Repository;
 
 import java.util.Optional;
 
-import com.project.lunchuis.Model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import com.project.lunchuis.Model.User;
+
+public interface UserRepository extends MongoRepository<User, String> {
     Optional<User> findByCodeAndPassword(String code, String password);
 }

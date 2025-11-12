@@ -1,26 +1,25 @@
 package com.project.lunchuis.Model;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 @Getter
 @Setter
-@Entity
-@Table(name = "notification")
+@Document(collection = "notification")
 public class Notification {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private LocalDate date;
 
     private String message;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false) // Clave foránea
+    @DBRef
     private User usuario;
 
     public Notification() {}

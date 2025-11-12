@@ -6,7 +6,6 @@ import com.project.lunchuis.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Controller;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,13 +32,13 @@ public class UserController {
         return ResponseEntity.ok(userService.authenticate(code, contrasena));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+    public ResponseEntity<User> getUserById(@PathVariable String id) {
         return userService.getUserById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
     @GetMapping("/{id}/purchases")
-    public ResponseEntity<List<Buy>> getUserPurchases(@PathVariable Long id) {
+    public ResponseEntity<List<Buy>> getUserPurchases(@PathVariable String id) {
         return userService.getUserById(id)
                 .map(user -> ResponseEntity.ok(user.getPurchases()))
                 .orElseGet(() -> ResponseEntity.notFound().build());

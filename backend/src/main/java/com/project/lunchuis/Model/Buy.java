@@ -1,23 +1,22 @@
 package com.project.lunchuis.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "buy")
-public class Buy {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Setter
+@Getter
+@Document(collection = "buy")
+public class Buy {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private LocalDate date;
     private LocalTime hour;
@@ -26,8 +25,7 @@ public class Buy {
     private boolean lunch;
     private boolean monthly;
 
-    // Relación con QR
-    @OneToOne(mappedBy = "buy", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @DBRef
     @JsonIgnore
     private QrCode qrcode;
 
@@ -39,17 +37,14 @@ public class Buy {
     }
 
     // Relación con Report
-    @ManyToOne
-    @JoinColumn(name = "report_id", nullable = false)
+    @DBRef
     @JsonIgnore
     private Report report;
 
     // Relación con User
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @DBRef
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "combo_id", nullable = false)
+    @DBRef
     private Combo combo;
 }

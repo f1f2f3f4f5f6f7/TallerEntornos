@@ -1,23 +1,19 @@
 package com.project.lunchuis.Model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "qrcode")
+@Document(collection = "qrcode")
 public class QrCode {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Lob
-    
-    @Basic(fetch = FetchType.LAZY)
     private byte[] qrImage;
 
-    @OneToOne
-    @JoinColumn(name = "buy_id", nullable = false)
+    @DBRef
     private Buy buy;
 
     public void setBuy(Buy buy) {

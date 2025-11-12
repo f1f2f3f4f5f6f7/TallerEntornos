@@ -26,7 +26,7 @@ public class QrController {
     private QrRepository qrRepository;
 
     @GetMapping("/{buyId}")
-    public ResponseEntity<byte[]> getQrCodeImage(@PathVariable Long buyId) {
+    public ResponseEntity<byte[]> getQrCodeImage(@PathVariable String buyId) {
         QrCode qrCode = qrRepository.findById(buyId)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "QR Code not found"));
 
@@ -37,7 +37,7 @@ public class QrController {
     }
 
     @PostMapping("/generate/{buyId}")
-    public QrCode generateQrCode(@PathVariable Long buyId) {
+    public QrCode generateQrCode(@PathVariable String buyId) {
         Buy buy = buyService.getBuyById(buyId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Buy not found"));
         return qrCodeService.generateQrCode(buy);

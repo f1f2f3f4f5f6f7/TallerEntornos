@@ -4,15 +4,12 @@ import com.project.lunchuis.Model.Buy;
 import com.project.lunchuis.Model.Report;
 import com.project.lunchuis.Repository.ReportRepository;
 
-import jakarta.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-@Transactional
 public class ReportService {
 
     private final ReportRepository reportRepository;

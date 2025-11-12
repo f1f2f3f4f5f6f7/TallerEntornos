@@ -19,7 +19,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(Long id) {
+    public Optional<User> getUserById(String id) {
         return userRepository.findById(id);
     }
 
@@ -27,7 +27,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void addPurchase(Long userId, Buy buy) {
+    public void addPurchase(String userId, Buy buy) {
         Optional<User> user = userRepository.findById(userId);
         user.ifPresent(u -> {
             u.getPurchases().add(buy);

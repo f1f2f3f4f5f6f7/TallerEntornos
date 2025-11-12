@@ -19,7 +19,7 @@ public class PurchaseValueController {
     }
 
     @GetMapping("/{id}")
-    public PurchaseValue getPurchaseValueById(@PathVariable Long id) {
+    public PurchaseValue getPurchaseValueById(@PathVariable String id) {
         return purchaseValueService.getPurchaseValueById(id);
     }
 
@@ -29,12 +29,12 @@ public class PurchaseValueController {
     }
 
     @PutMapping("/{id}")
-    public PurchaseValue updatePurchaseValue(@PathVariable Long id, @RequestBody PurchaseValue purchaseValue) {
+    public PurchaseValue updatePurchaseValue(@PathVariable String id, @RequestBody PurchaseValue purchaseValue) {
         return purchaseValueService.updatePurchaseValue(id, purchaseValue);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePurchaseValue(@PathVariable Long id) {
+    public void deletePurchaseValue(@PathVariable String id) {
         purchaseValueService.deletePurchaseValue(id);
     }
 }

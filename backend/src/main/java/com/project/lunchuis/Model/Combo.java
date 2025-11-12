@@ -1,28 +1,24 @@
 package com.project.lunchuis.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "combo")
 public class Combo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private String name;         // Ej: "Combo saludable" o "Vegetariano"
-    private String description;  // Detalles si los necesitas
-    private int price;           // Precio del combo (plato)
-    
-    private int purchaseCount = 0;  // Contador de compras (si es necesario)
+    private String name;
+    private String description;
+    private int price;
+    private int purchaseCount = 0;
 
     // Getters y setters
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,7 +54,6 @@ public class Combo {
         this.purchaseCount = purchaseCount;
     }
 
-    // Método para incrementar el contador de compras
     public void incrementPurchaseCount() {
         this.purchaseCount++;
     }

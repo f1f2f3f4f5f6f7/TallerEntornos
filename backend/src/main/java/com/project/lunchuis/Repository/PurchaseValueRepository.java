@@ -1,9 +1,9 @@
 package com.project.lunchuis.Repository;
 
 import com.project.lunchuis.Model.PurchaseValue;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PurchaseValueRepository extends JpaRepository<PurchaseValue, Long> {
+public interface PurchaseValueRepository extends MongoRepository<PurchaseValue, String> {
 }

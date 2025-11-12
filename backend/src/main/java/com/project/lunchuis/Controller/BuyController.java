@@ -30,19 +30,19 @@ public class BuyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Buy> getBuyById(@PathVariable Long id) {
+    public ResponseEntity<Buy> getBuyById(@PathVariable String id) {
         Optional<Buy> buy = buyService.getBuyById(id);
         return buy.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Buy> updateBuy(@PathVariable Long id, @RequestBody Buy buyDetails) {
+    public ResponseEntity<Buy> updateBuy(@PathVariable String id, @RequestBody Buy buyDetails) {
         Optional<Buy> updatedBuy = buyService.updateBuy(id, buyDetails);
         return updatedBuy.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBuy(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBuy(@PathVariable String id) {
         boolean deleted = buyService.deleteBuy(id);
         if (deleted) {
             return ResponseEntity.noContent().build();

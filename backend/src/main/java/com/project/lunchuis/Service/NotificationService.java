@@ -28,7 +28,7 @@ public class NotificationService {
 
 
     // Crear una nueva notificación
-    public Notification createNotification(Notification notification, Long userId) {
+    public Notification createNotification(Notification notification, String userId) {
         if (userId == null) {
             throw new IllegalArgumentException("El ID del usuario no puede ser nulo");
         }

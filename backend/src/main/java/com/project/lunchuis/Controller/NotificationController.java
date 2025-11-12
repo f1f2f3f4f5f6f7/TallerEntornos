@@ -20,7 +20,7 @@ public class NotificationController {
     @PostMapping
     public ResponseEntity<Notification> createNotification(
             @RequestBody Notification notification,
-            @RequestParam Long userId) {
+            @RequestParam String userId) {
         Notification newNotification = notificationService.createNotification(notification, userId);
         notificationService.sendNotification(newNotification);
         return ResponseEntity.ok(newNotification);
