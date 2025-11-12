@@ -1,5 +1,13 @@
 # TALLER FULLSTACK - LUNCH UIS
 Este proyecto fue desarrollado originalmente para la misma materia (Entornos de Programación) (2025-2) y adaptado para cumplir con los requisitos del Taller FullStack.
+## Equipo de Desarrollo
+| Rol                          | Nombre                                            |
+| ---------------------------- | ------------------------------------------------- |
+| **Product Owner**            | Mag. Carlos Adolfo Beltrán Castro                 |
+| **Scrum Master**             | Kevin Daniel Castro Mendoza                       |
+| **Developer – Architecture** | Andrea Juliana Portilla Barrera                   |
+| **Developer – Coding**       | Kevin Castro, Sebastián Mantilla, Andrea Portilla |
+| **QA Member**                | Juan Sebastián Mantilla Serrano                   |
 
 # OBJETIVO DEL TALLER
 Construir una solución FullStack con las siguientes especificaciones técnicas:
